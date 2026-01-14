@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Belgian Web 3.0 Story | Road Trip Digital</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono&family=Playfair+Display:italic,wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #050505;
+            --accent-blue: #3b82f6;
+            --accent-purple: #8b5cf6;
+            --glass: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.1);
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: #ffffff;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        .mono { font-family: 'JetBrains Mono', monospace; }
+        .serif-italic { font-family: 'Playfair Display', serif; font-style: italic; }
+
+        .glass-card {
+            background: var(--glass);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            transition: all 0.3s ease;
+        }
+
+        .glass-card:hover {
+            border-color: var(--accent-blue);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .hero-gradient {
+            background: radial-gradient(circle at 50% -20%, #1e293b 0%, #050505 60%);
+        }
+
+        .text-gradient {
+            background: linear-gradient(to right, #ffffff, #94a3b8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(59, 130, 246, 0.4);
+        }
+
+        .crypto-bg {
+            position: absolute;
+            z-index: -1;
+            opacity: 0.05;
+            pointer-events: none;
+        }
+
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #050505; }
+        ::-webkit-scrollbar-thumb { background: #333; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--accent-blue); }
+
+        .note-container {
+            position: relative;
+            background: linear-gradient(145deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.01) 100%);
+        }
+    </style>
+</head>
+<body class="hero-gradient">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 px-6 py-4 flex justify-between items-center backdrop-blur-md border-b border-white/5">
+        <div class="flex items-center space-x-2">
+            <div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center font-bold text-white shadow-lg shadow-blue-500/20">B</div>
+            <span class="font-bold tracking-tighter text-xl uppercase italic">Belgian Web 3.0 Story</span>
+        </div>
+        <div class="hidden md:flex space-x-8 text-sm font-medium text-gray-400 uppercase tracking-widest">
+            <a href="#vision" class="hover:text-white transition">Vision</a>
+            <a href="#intention" class="hover:text-white transition border-b border-blue-500/50 pb-1">Note d'Intention</a>
+            <a href="#scenario" class="hover:text-white transition">Scénario</a>
+            <a href="#diffusion" class="hover:text-white transition">Diffusion</a>
+            <a href="#budget" class="hover:text-white transition text-blue-400">Investir</a>
+        </div>
+        <button id="connectBtn" onclick="toggleConnect()" class="px-5 py-2 rounded-full border border-white/20 text-xs font-bold hover:bg-white hover:text-black transition uppercase tracking-tighter">
+            Connect Wallet
+        </button>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative pt-48 pb-24 px-6 text-center max-w-5xl mx-auto overflow-hidden">
+        <svg class="crypto-bg top-0 -left-10 w-64 h-64 text-blue-500" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L4.5 20.29L5.21 21L12 18L18.79 21L19.5 20.29L12 2Z"/></svg>
+        
+        <div class="inline-block px-4 py-1 rounded-full border border-blue-500/30 bg-blue-500/10 text-blue-400 mono text-[10px] mb-6 tracking-[0.3em] uppercase animate-pulse">
+            Road Trip Digital • Belgique • 2026
+        </div>
+        
+        <h1 class="text-6xl md:text-8xl font-extrabold mb-8 tracking-tighter leading-[0.9] text-gradient">
+            L'AVENIR DU WEB <br> S'ÉCRIT EN BELGIQUE.
+        </h1>
+        <p class="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto mb-12 font-light leading-relaxed">
+            Un voyage immersif à la rencontre des pionniers qui transforment notre héritage industriel en souveraineté numérique.
+        </p>
+        <div class="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-6">
+            <button class="btn-primary px-10 py-4 rounded-full font-bold uppercase text-sm tracking-widest shadow-xl">Découvrir le Teaser</button>
+            <button class="px-10 py-4 rounded-full border border-white/10 hover:bg-white/5 font-bold uppercase text-sm tracking-widest transition backdrop-blur-sm">Soutenir la production</button>
+        </div>
+    </header>
+
+    <!-- Note d'Intention Section -->
+    <section id="intention" class="py-32 px-6">
+        <div class="max-w-4xl mx-auto">
+            <div class="note-container p-8 md:p-16 rounded-[40px] border border-white/10 shadow-2xl relative overflow-hidden">
+                <div class="absolute -top-24 -right-24 w-64 h-64 bg-blue-600/10 rounded-full blur-3xl"></div>
+                <div class="absolute -bottom-24 -left-24 w-64 h-64 bg-purple-600/10 rounded-full blur-3xl"></div>
+                
+                <div class="relative z-10">
+                    <span class="mono text-blue-500 text-xs uppercase tracking-[0.4em] mb-4 block">Note d'Intention</span>
+                    <h2 class="text-4xl md:text-5xl font-bold mb-12 leading-tight">
+                        Au-delà du code, <br>
+                        <span class="serif-italic text-blue-400">une renaissance belge.</span>
+                    </h2>
+                    
+                    <div class="prose prose-invert max-w-none space-y-8 text-gray-300 text-lg font-light leading-relaxed">
+                        <p>
+                            La Belgique, et plus particulièrement la Wallonie, porte encore dans son paysage et dans son âme les stigmates de la fin de l'ère industrielle. Après la fermeture des mines et de la sidérurgie, notre région s'est retrouvée à la recherche d'un second souffle, d'une nouvelle épopée capable de mobiliser ses talents.
+                        </p>
+                        
+                        <p>
+                            Aujourd'hui, une révolution plus silencieuse mais tout aussi radicale que la machine à vapeur se prépare : celle du <strong class="text-white">Web 3.0</strong>. Blockchain, NFTs, DAOs... ces acronymes ne sont pas de simples gadgets technologiques. Ils sont les briques d'une nouvelle architecture sociétale basée sur la décentralisation. Ma conviction est que la Belgique possède tous les atouts pour devenir le hub de cette prochaine révolution industrielle, à condition de savoir saisir l'opportunité.
+                        </p>
+
+                        <div class="my-12 py-8 border-y border-white/10 text-center">
+                            <p class="text-2xl serif-italic text-white leading-snug">
+                                "La Belgique et ses entrepreneurs pourront-ils prendre part à cette révolution numérique ?"
+                            </p>
+                        </div>
+
+                        <p>
+                            Ce projet mettra en valeur le <span class="text-blue-400">"Web 3 Made in Belgium"</span>. Nous irons à la rencontre des bâtisseurs qui codent le futur depuis Bruxelles ou Anvers. Cependant, un nuage plane sur ce futur : la régulation européenne <strong class="text-white">MiCA</strong>. Si l'intention est louable, une régulation rigide risque de brider l'innovation. L'objectif est d'alerter : l'Europe pourrait une fois de plus passer à côté d'un train technologique majeur.
+                        </p>
+
+                        <p>
+                            À travers cette expérience transmedia, nous voulons montrer que nous n'avons pas seulement une place à prendre, mais un rôle de leader à jouer. C'est une invitation à construire une souveraineté numérique forte et audacieuse.
+                        </p>
+
+                        <div class="pt-8 flex items-center space-x-4">
+                            <div class="w-12 h-12 rounded-full bg-gradient-to-tr from-blue-600 to-purple-600"></div>
+                            <div>
+                                <p class="text-white font-bold mb-0">Christophe Hertecant</p>
+                                <p class="text-gray-500 text-sm mono uppercase tracking-widest">Réalisateur & Initiateur</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vision Section -->
+    <section id="vision" class="py-24 px-6 max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="glass-card p-10 flex flex-col justify-between group">
+                <div>
+                    <div class="w-12 h-12 rounded-2xl bg-blue-500/20 flex items-center justify-center text-blue-500 mb-8 group-hover:scale-110 transition">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+                    </div>
+                    <h3 class="text-blue-400 mono text-xs mb-4 uppercase tracking-widest">Économique</h3>
+                    <h2 class="text-2xl font-bold mb-4">Stimuler l'Innovation</h2>
+                    <p class="text-gray-400 font-light leading-relaxed">Mettre en lumière les licornes belges et attirer les investisseurs vers un écosystème dynamique et créateur d'emplois.</p>
+                </div>
+            </div>
+            <div class="glass-card p-10 flex flex-col justify-between group">
+                <div>
+                    <div class="w-12 h-12 rounded-2xl bg-purple-500/20 flex items-center justify-center text-purple-500 mb-8 group-hover:scale-110 transition">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+                    </div>
+                    <h3 class="text-purple-400 mono text-xs mb-4 uppercase tracking-widest">Éducatif</h3>
+                    <h2 class="text-2xl font-bold mb-4">Vulgariser le Futur</h2>
+                    <p class="text-gray-400 font-light leading-relaxed">Rendre les enjeux du Web3 accessibles à tous, sensibiliser le public et former la prochaine génération de talents digitaux.</p>
+                </div>
+            </div>
+            <div class="glass-card p-10 flex flex-col justify-between group">
+                <div>
+                    <div class="w-12 h-12 rounded-2xl bg-green-500/20 flex items-center justify-center text-green-500 mb-8 group-hover:scale-110 transition">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                    </div>
+                    <h3 class="text-green-400 mono text-xs mb-4 uppercase tracking-widest">Politique</h3>
+                    <h2 class="text-2xl font-bold mb-4">Défendre la Liberté</h2>
+                    <p class="text-gray-400 font-light leading-relaxed">Alerter sur les risques de MiCA et promouvoir la décentralisation comme rempart face à l'hégémonie des GAFAM.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scénario / Chapitres Section -->
+    <section id="scenario" class="py-24 px-6 max-w-7xl mx-auto">
+        <div class="flex flex-col md:flex-row justify-between items-end mb-16 space-y-4">
+            <div class="max-w-xl">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4 tracking-tighter">Le Fil du Récit</h2>
+                <p class="text-gray-400 italic">Un voyage en quatre chapitres au cœur du Web 3 made in Belgium.</p>
+            </div>
+            <div class="text-right">
+                <span class="text-blue-500 mono font-bold text-4xl italic">04</span>
+                <span class="text-gray-600 uppercase text-[10px] block tracking-widest">Chapitres Clés</span>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="glass-card p-10 relative group overflow-hidden">
+                <div class="absolute -top-10 -right-10 text-9xl font-black text-white/5 italic group-hover:text-blue-500/10 transition">01</div>
+                <h3 class="text-blue-500 mono text-xs uppercase mb-4">Héritage & Genèse</h3>
+                <h4 class="text-2xl font-bold mb-4">L'Origine du Nouveau Monde</h4>
+                <p class="text-gray-400 text-sm leading-relaxed">Exploration de la transition : de la sidérurgie de Liège aux premiers protocoles cryptographiques belges. Pourquoi nous sommes prêts pour ce changement.</p>
+            </div>
+            <div class="glass-card p-10 relative group overflow-hidden">
+                <div class="absolute -top-10 -right-10 text-9xl font-black text-white/5 italic group-hover:text-blue-500/10 transition">02</div>
+                <h3 class="text-blue-500 mono text-xs uppercase mb-4">Infrastructure</h3>
+                <h4 class="text-2xl font-bold mb-4">Architecture de Confiance</h4>
+                <p class="text-gray-400 text-sm leading-relaxed">Démystification technique : Blockchain, Smart Contracts et Décentralisation. Filmer l'invisible et comprendre la technologie sous-jacente.</p>
+            </div>
+            <div class="glass-card p-10 relative group overflow-hidden">
+                <div class="absolute -top-10 -right-10 text-9xl font-black text-white/5 italic group-hover:text-blue-500/10 transition">03</div>
+                <h3 class="text-blue-500 mono text-xs uppercase mb-4">L'Écosystème</h3>
+                <h4 class="text-2xl font-bold mb-4">Bâtisseurs de Demain</h4>
+                <p class="text-gray-400 text-sm leading-relaxed">Rencontres avec Ngrave, Logion et Walchain. Comment nos startups s'imposent à l'international depuis le sol belge.</p>
+            </div>
+            <div class="glass-card p-10 relative group overflow-hidden">
+                <div class="absolute -top-10 -right-10 text-9xl font-black text-white/5 italic group-hover:text-blue-500/10 transition">04</div>
+                <h3 class="text-blue-500 mono text-xs uppercase mb-4">Futur & Éthique</h3>
+                <h4 class="text-2xl font-bold mb-4">L'Enjeu du HUB Européen</h4>
+                <p class="text-gray-400 text-sm leading-relaxed">Le débat sur la régulation MiCA et le risque de fuite des cerveaux. Faire de la Belgique le centre névralgique du Web3 en Europe.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Strategy / Transmedia -->
+    <section id="diffusion" class="py-24 bg-blue-600/5 border-y border-white/5 px-6">
+        <div class="max-w-5xl mx-auto text-center">
+            <h2 class="text-4xl font-bold mb-6 italic tracking-tighter">Une Expérience Transmedia</h2>
+            <p class="text-gray-400 mb-16 max-w-2xl mx-auto">L'histoire est complétée par une plateforme interactive où les épisodes sont débloqués par la communauté via des NFTs exclusifs.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <div class="flex flex-col items-center">
+                    <div class="w-16 h-16 rounded-full bg-blue-600 flex items-center justify-center text-white text-xl font-bold mb-4 shadow-lg shadow-blue-500/40">1</div>
+                    <h5 class="font-bold mb-2">Support Linéaire</h5>
+                    <p class="text-xs text-gray-500 uppercase">Projections & Festivals</p>
+                </div>
+                <div class="flex flex-col items-center">
+                    <div class="w-16 h-16 rounded-full border border-white/20 bg-black/40 flex items-center justify-center text-white text-xl font-bold mb-4">2</div>
+                    <h5 class="font-bold mb-2">Plateforme Web3</h5>
+                    <p class="text-xs text-gray-500 uppercase">Épisodes & Bonus</p>
+                </div>
+                <div class="flex flex-col items-center">
+                    <div class="w-16 h-16 rounded-full border border-white/20 bg-black/40 flex items-center justify-center text-white text-xl font-bold mb-4">3</div>
+                    <h5 class="font-bold mb-2">Gouvernance</h5>
+                    <p class="text-xs text-gray-500 uppercase">DAO & Communauté</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Financing Section -->
+    <section id="budget" class="py-32 px-6 max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-20">
+            <div>
+                <span class="mono text-blue-500 text-xs uppercase tracking-[0.3em] mb-4 block">Opportunité d'Investissement</span>
+                <h2 class="text-5xl font-bold mb-8 tracking-tighter">Soutenir l'innovation <br> par la culture.</h2>
+                <h3 class="text-2xl font-bold mb-6 text-blue-400 italic">Horizon 2026</h3>
+                <p class="text-gray-400 text-lg mb-10 font-light">
+                    Nous recherchons des partenaires visionnaires (Publics, Privés, Sponsoring) pour finaliser cette œuvre majeure de sensibilisation technologique.
+                </p>
+                <div class="space-y-4">
+                    <div class="flex items-center space-x-4 p-4 border border-white/10 rounded-2xl hover:bg-white/5 transition">
+                        <div class="text-blue-500">💰</div>
+                        <div>
+                            <p class="font-bold text-sm">Éligibilité Tax Shelter</p>
+                            <p class="text-xs text-gray-500">Optimisation fiscale pour les entreprises belges.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-4 p-4 border border-white/10 rounded-2xl hover:bg-white/5 transition">
+                        <div class="text-blue-500">🚀</div>
+                        <div>
+                            <p class="font-bold text-sm">Visibilité Premium</p>
+                            <p class="text-xs text-gray-500">Intégration native dans le projet et sur la plateforme.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="glass-card p-10 bg-gradient-to-br from-blue-600/10 to-transparent">
+                <h4 class="text-xl font-bold mb-8 italic">Structure du Financement</h4>
+                <div class="space-y-6">
+                    <div>
+                        <div class="flex justify-between text-xs mono uppercase mb-2"><span class="text-gray-400">Public (CCA / Wallonia)</span><span class="text-white">40%</span></div>
+                        <div class="w-full h-1 bg-white/5 rounded-full overflow-hidden"><div class="h-full bg-blue-500 w-[40%]"></div></div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between text-xs mono uppercase mb-2"><span class="text-gray-400">Sponsoring (Écosystème)</span><span class="text-white">35%</span></div>
+                        <div class="w-full h-1 bg-white/5 rounded-full overflow-hidden"><div class="h-full bg-blue-400 w-[35%]"></div></div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between text-xs mono uppercase mb-2"><span class="text-gray-400">Tax Shelter</span><span class="text-white">25%</span></div>
+                        <div class="w-full h-1 bg-white/5 rounded-full overflow-hidden"><div class="h-full bg-purple-500 w-[25%]"></div></div>
+                    </div>
+                </div>
+                <button class="w-full mt-12 py-4 rounded-xl bg-white text-black font-bold uppercase text-xs tracking-widest hover:bg-blue-500 hover:text-white transition">Recevoir le dossier complet</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-24 border-t border-white/5 px-6">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center space-y-12 md:space-y-0">
+            <div>
+                <h2 class="text-3xl font-extrabold italic tracking-tighter uppercase mb-2">Christophe Hertecant</h2>
+                <p class="text-gray-500 mono text-xs uppercase tracking-widest">Réalisateur & Producteur</p>
+            </div>
+            <div class="flex flex-col md:items-end space-y-4">
+                <a href="mailto:Christophehertecant@gmail.com" class="text-xl font-light hover:text-blue-500 transition">Christophehertecant@gmail.com</a>
+                <a href="tel:+32477195659" class="text-xl font-light hover:text-blue-500 transition">+32 477 19 56 59</a>
+                <div class="flex space-x-6 pt-4">
+                    <span class="text-xs text-gray-600 uppercase tracking-tighter italic">LinkedIn • Twitter • Walchain</span>
+                </div>
+            </div>
+        </div>
+        <div class="mt-20 text-center">
+            <p class="text-[10px] text-gray-700 uppercase tracking-[0.5em]">© 2026 Belgian Web 3.0 Story • Made in Belgium • Decentralized Future</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleConnect() {
+            const btn = document.getElementById('connectBtn');
+            if (btn.innerText === "CONNECT WALLET") {
+                btn.innerText = "0x71C...49A2";
+                btn.classList.add('bg-blue-600', 'border-blue-600', 'text-white');
+                btn.classList.remove('hover:bg-white', 'hover:text-black');
+            } else {
+                btn.innerText = "CONNECT WALLET";
+                btn.classList.remove('bg-blue-600', 'border-blue-600', 'text-white');
+                btn.classList.add('hover:bg-white', 'hover:text-black');
+            }
+        }
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100');
+                    entry.target.classList.remove('opacity-0', 'translate-y-10');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('section').forEach(section => {
+            section.classList.add('transition-all', 'duration-1000', 'opacity-0', 'translate-y-10');
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
